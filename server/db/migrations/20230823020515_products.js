@@ -2,8 +2,8 @@ exports.up = function (knex) {
   return knex.schema.createTable('products', (table) => {
     table.increments('id').primary()
     table.string('imageUrl')
-    table.string('name')
-    table.decimal('price', 10, 2)
+    table.string('name').notNullable()
+    table.decimal('price', 10, 2).notNullable()
     table.string('description')
     table.timestamps(true, true)
   })

@@ -1,9 +1,9 @@
 exports.up = function (knex) {
   return knex.schema.createTable('orderItems', function (table) {
     table.increments('id').primary()
-    table.number('orderId')
-    table.number('productId')
-    table.number('quantity')
+    table.integer('orderId').notNullable()
+    table.integer('productId').notNullable()
+    table.integer('quantity').notNullable()
   })
 }
 
