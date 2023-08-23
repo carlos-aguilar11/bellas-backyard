@@ -1,22 +1,29 @@
 export interface Product {
   id: number
-  image_url: string
+  imageUrl: string
   name: string
   price: number
   description: string
+  created_at: Date
+  updated_at: Date
 }
 
 export interface Category {
   id: number
   name: string
-  image_url: string
+  imageUrl: string
 }
 
 export interface User {
   id: number
+  imageUrl: string
+  name: string
+  lastName: string
   username: string
   email: string
   password: string
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface Cart {
@@ -29,6 +36,8 @@ export interface Order {
   userId: number
   orderStatus: string
   orderTotal: number
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface OrderItem {
