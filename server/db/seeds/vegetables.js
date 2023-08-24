@@ -5,15 +5,16 @@ exports.seed = async function (knex) {
     {
       imageUrl: 'storage.com',
       name: 'Carrot',
-      price: 1.29,
-      description: 'Organic carrot',
-      category_id: 1,
+      price: 0.99,
+      description: 'Organic carrot - Price is for each',
+      category_id: 2,
     },
     {
+      imageUrl: 'storage.com',
       name: 'Broccoli',
       price: 1.99,
-      description: 'Fresh broccoli',
-      category_id: 1,
+      description: 'Fresh broccoli = Price is for each',
+      category_id: 2,
     },
   ])
 }
