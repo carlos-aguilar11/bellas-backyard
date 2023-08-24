@@ -6,6 +6,7 @@ export interface Product {
   description: string
   created_at: Date
   updated_at: Date
+  categoryId: number
 }
 
 export interface Category {
