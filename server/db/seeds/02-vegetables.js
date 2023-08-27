@@ -1,6 +1,5 @@
 exports.seed = async function (knex) {
-  // Deletes ALL existing entries
-  await knex('products').del()
+  await knex('products').where('categoryId', 1).del()
   await knex('products').insert([
     {
       imageUrl: 'storage.com',
