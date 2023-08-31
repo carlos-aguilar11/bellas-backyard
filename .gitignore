@@ -1,3 +1,7 @@
+#mkcert
+bellasbackyard.com-key.pem
+bellasbackyard.com.pem
+
 # Logs
 logs
 *.log
