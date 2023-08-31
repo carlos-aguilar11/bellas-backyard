@@ -15,17 +15,6 @@ export interface Category {
   imageUrl: string
 }
 
-export interface User {
-  id: number
-  imageUrl: string
-  name: string
-  lastName: string
-  username: string
-  email: string
-  createdAt: Date
-  updatedAt: Date
-}
-
 export interface Cart {
   id: number
   userId: number

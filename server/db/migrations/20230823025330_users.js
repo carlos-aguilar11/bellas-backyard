@@ -5,7 +5,8 @@ exports.up = function (knex) {
     table.string('name').notNullable()
     table.string('lastName').notNullable()
     table.string('username').notNullable()
-    table.string('email').notNullable()
+    table.string('auth0_id').unique()
+    table.string('email').unique().notNullable()
     table.timestamps(true, true)
   })
 }
