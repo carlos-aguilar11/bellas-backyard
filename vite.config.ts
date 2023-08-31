@@ -6,8 +6,8 @@ export default defineConfig({
   plugins: [react()],
   server: {
     https: {
-      key: 'localhost-key.pem',
-      cert: 'localhost.pem',
+      key: 'bellasbackyard.com-key.pem',
+      cert: 'bellasbackyard.com.pem',
     },
   },
 })
