@@ -16,7 +16,7 @@ exports.seed = async function (knex) {
       categoryId: 3,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/SVZJ4wR/20230823-101814.jpg',
       name: 'Baguette',
       price: 6.99,
       description: 'Fresh French baguette - Price is for each',
@@ -30,14 +30,14 @@ exports.seed = async function (knex) {
       categoryId: 3,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/SVFWc5M/20230823-102149.jpg',
       name: 'Choc-Chip Cookie',
       price: 1.99,
       description: 'Traditional choc-chip cookie - Price is for each',
       categoryId: 3,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/zR0qMpT/20230823-101914.jpg',
       name: 'Donut',
       price: 2.99,
       description: 'Vegan donut - Price is for each',

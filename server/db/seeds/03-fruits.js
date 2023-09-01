@@ -9,10 +9,10 @@ exports.seed = async function (knex) {
       categoryId: 2,
     },
     {
-      imageUrl: 'https://i.ibb.co/jMBSm9X/20230823-102000.jpg',
-      name: 'Red Apple',
-      price: 0.99,
-      description: 'Fresh apple - Price is for each',
+      imageUrl: 'https://i.ibb.co/QFRWMX9/20230823-102014.jpg',
+      name: 'Strawberries',
+      price: 5.99,
+      description: 'Fresh apple - Price is for tray',
       categoryId: 2,
     },
     {

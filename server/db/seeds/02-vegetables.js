@@ -2,7 +2,7 @@ exports.seed = async function (knex) {
   await knex('products').where('categoryId', 1).del()
   await knex('products').insert([
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/pRMPSVf/20230823-101644.jpg',
       name: 'Carrot',
       price: 0.99,
       description: 'Organic carrot - Price is for each',
@@ -23,14 +23,14 @@ exports.seed = async function (knex) {
       categoryId: 1,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/sqCLzv6/20230823-102052.jpg',
       name: 'Lettuce',
       price: 3.99,
       description: 'Fresh lettuce - Price is for each',
       categoryId: 1,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/G5H8j11/20230823-101757.jpg',
       name: 'Tomatoes',
       price: 9.99,
       description: 'Tasty tomatoes - Price is for tray',
