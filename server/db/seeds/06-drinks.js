@@ -16,7 +16,7 @@ exports.seed = async function (knex) {
       categoryId: 5,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/SrnWRVn/20230823-102408.jpg',
       name: 'Blueberry Juice',
       price: 2.99,
       description: 'Natural 1L blueberry juice - Price is for each',

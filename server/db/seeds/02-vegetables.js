@@ -16,7 +16,7 @@ exports.seed = async function (knex) {
       categoryId: 1,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/4JMR6c1/20230823-102630.jpg',
       name: 'Cucumber',
       price: 2.99,
       description: 'Organic cucumber - Price is for each',
@@ -37,7 +37,7 @@ exports.seed = async function (knex) {
       categoryId: 1,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/dtpQS8h/20230823-102320.jpg',
       name: 'Corn',
       price: 2.99,
       description: 'Organic corn - Price is for each',

@@ -16,7 +16,7 @@ exports.seed = async function (knex) {
       categoryId: 4,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/PGXN9kq/20230823-102347.jpg',
       name: 'French Fries',
       price: 5.99,
       description: 'Tasty french fries - Price is for pack',
