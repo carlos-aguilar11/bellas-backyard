@@ -9,7 +9,7 @@ exports.seed = async function (knex) {
       categoryId: 1,
     },
     {
-      imageUrl: 'storage.com',
+      imageUrl: 'https://i.ibb.co/XpsVG44/20230823-101533.jpg',
       name: 'Broccoli',
       price: 1.99,
       description: 'Fresh broccoli - Price is for each',
