@@ -1,6 +1,9 @@
-#mkcert
+# mkcert
 bellasbackyard.com-key.pem
 bellasbackyard.com.pem
+
+# Others
+.env
 
 # Logs
 logs
