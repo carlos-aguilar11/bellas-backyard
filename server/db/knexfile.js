@@ -18,14 +18,11 @@ module.exports = {
     connection: {
       filename: ':memory:',
     },
-    migrations: {
-      directory: join(__dirname, 'migrations'),
-    },
     seeds: {
       directory: join(__dirname, 'seeds'),
     },
-    pool: {
-      afterCreate: (conn, cb) => conn.run('PRAGMA foreign_keys = ON', cb),
+    migrations: {
+      directory: join(__dirname, 'migrations'),
     },
   },
 

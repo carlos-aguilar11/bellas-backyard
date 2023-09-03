@@ -7,3 +7,10 @@ export async function getUserByAuth0Id(
 ): Promise<User> {
   return db('users').where('auth0Id', auth0Id).select().first()
 }
+
+export async function getUserByEmail(
+  email: string,
+  db = connection
+): Promise<User> {
+  return db('users').where('email', email).select().first()
+}

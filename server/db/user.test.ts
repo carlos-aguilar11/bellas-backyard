@@ -17,9 +17,42 @@ afterAll(async () => {
   await testDb.destroy()
 })
 
-describe('getUserById', () => {
+describe('getUserByAuth0Id', () => {
   it('object has id property', async () => {
     const user = await db.getUserByAuth0Id('auth0|user1', testDb)
+
+    expect(user).toHaveProperty('id')
+  })
+  it('object has imageUrl property', async () => {
+    const user = await db.getUserByAuth0Id('auth0|user1', testDb)
+
+    expect(user).toHaveProperty('imageUrl')
+  })
+  it('object has name property', async () => {
+    const user = await db.getUserByAuth0Id('auth0|user1', testDb)
+
+    expect(user).toHaveProperty('name')
+  })
+  it('object has name property', async () => {
+    const user = await db.getUserByAuth0Id('auth0|user1', testDb)
+
+    expect(user).toHaveProperty('name')
+  })
+  it('object has lastName property', async () => {
+    const user = await db.getUserByAuth0Id('auth0|user1', testDb)
+
+    expect(user).toHaveProperty('lastName')
+  })
+  it('object has username property', async () => {
+    const user = await db.getUserByAuth0Id('auth0|user1', testDb)
+
+    expect(user).toHaveProperty('username')
+  })
+})
+
+describe('getUserByEmail', () => {
+  it('object has email property', async () => {
+    const user = await db.getUserByEmail('bella.aguilar@example.com', testDb)
 
     expect(user).toHaveProperty('email')
   })
