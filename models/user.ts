@@ -9,3 +9,8 @@ export interface User {
   createdAt: Date
   updatedAt: Date
 }
+
+export interface NewUser {
+  auth0Id: string
+  email: string
+}

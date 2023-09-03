@@ -1,5 +1,5 @@
 import connection from './connection'
-import { User } from '../../models/user'
+import { User, NewUser } from '../../models/user'
 
 export async function getUserByAuth0Id(
   auth0Id: string,
@@ -13,4 +13,12 @@ export async function getUserByEmail(
   db = connection
 ): Promise<User> {
   return db('users').where('email', email).select().first()
+}
+
+export async function addUser(
+  newUser: NewUser,
+  db = connection
+): Promise<User> {
+  const [userId] = await db('users').insert(newUser)
+  return db('users').where('id', userId).select().first()
 }
