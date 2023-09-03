@@ -1,20 +1,9 @@
 import connection from './connection'
 import { User } from '../../models/user'
 
-export async function getUserById(id: number): Promise<User | null> {
-  try {
-    const user = await connection<User>('users').where('id', id).first()
-    return user || null
-  } catch (error: any) {
-    throw new Error('Error fetching user by ID: ' + error.message)
-  }
-}
-
-export async function getUserByEmail(email: string): Promise<User | null> {
-  try {
-    const user = await connection<User>('users').where('email', email).first()
-    return user || null
-  } catch (error: any) {
-    throw new Error('Error fetching user by email: ' + error.message)
-  }
+export async function getUserByAuth0Id(
+  auth0Id: string,
+  db = connection
+): Promise<User> {
+  return db('users').where('auth0Id', auth0Id).select().first()
 }

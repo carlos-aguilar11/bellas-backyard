@@ -1,27 +1,26 @@
-import { describe, it, expect, beforeAll, beforeEach } from 'vitest'
-import db from './connection'
-import { getUserByEmail, getUserById } from './user'
+import { beforeEach, beforeAll, afterAll, describe, it, expect } from 'vitest'
+import knex from 'knex'
+import config from './knexfile'
+import * as db from './user'
+
+const testDb = knex(config.test)
 
 beforeAll(async () => {
-  await db.migrate.latest()
+  await testDb.migrate.latest()
 })
 
 beforeEach(async () => {
-  await db.seed.run()
+  await testDb.seed.run()
+})
+
+afterAll(async () => {
+  await testDb.destroy()
 })
 
 describe('getUserById', () => {
-  it('should return an user by ID', async () => {
-    const id = 1
-    const user = await getUserById(id)
-    expect(user).toHaveProperty('authOId: autho|user1')
-  })
-})
+  it('object has id property', async () => {
+    const user = await db.getUserByAuth0Id('auth0|user1', testDb)
 
-describe('getUserByEmail', () => {
-  it('should return an user by email', async () => {
-    const email = ''
-    const user = await getUserByEmail(email)
-    expect(user).toHaveProperty('authOId')
+    expect(user).toHaveProperty('email')
   })
 })
