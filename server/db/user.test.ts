@@ -57,3 +57,26 @@ describe('getUserByEmail', () => {
     expect(user).toHaveProperty('email')
   })
 })
+
+describe('addUser', () => {
+  it('adds a new user to the database', async () => {
+    const newUser = {
+      auth0Id: 'auth0|user123',
+      email: 'newuser@example.com',
+      imageUrl: 'newuser-image-url',
+      name: 'New',
+      lastName: 'User',
+      username: 'newuser123',
+    }
+
+    const addedUser = await db.addUser(newUser, testDb)
+
+    expect(addedUser).toHaveProperty('id')
+    expect(addedUser.auth0Id).toBe(newUser.auth0Id)
+    expect(addedUser.email).toBe(newUser.email)
+    expect(addedUser.imageUrl).toBe(newUser.imageUrl)
+    expect(addedUser.name).toBe(newUser.name)
+    expect(addedUser.lastName).toBe(newUser.lastName)
+    expect(addedUser.username).toBe(newUser.username)
+  })
+})

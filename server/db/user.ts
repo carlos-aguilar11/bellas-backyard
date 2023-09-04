@@ -19,6 +19,6 @@ export async function addUser(
   newUser: NewUser,
   db = connection
 ): Promise<User> {
-  const [userId] = await db('users').insert(newUser)
-  return db('users').where('id', userId).select().first()
+  const [insertedUserId] = await db('users').insert(newUser)
+  return db('users').where('id', insertedUserId).select().first()
 }
