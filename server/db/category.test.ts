@@ -17,10 +17,18 @@ afterAll(async () => {
   await testDb.destroy()
 })
 
-describe('getCategoryWithProductId', () => {
-  it('should return a list of products with the same categoryId', async () => {
-    const user = await db.getCategoryWithProductsById('categoryId', testDb)
+describe('getCategoryWithProductsById', () => {
+  it('should return a category with products', async () => {
+    const categoryId = 1
 
-    expect(user).toHaveProperty('id')
+    const categoryWithProducts = await db.getCategoryWithProductsById(
+      categoryId,
+      testDb
+    )
+
+    expect(categoryWithProducts).toHaveProperty('id')
+    expect(categoryWithProducts).toHaveProperty('name')
+    expect(categoryWithProducts).toHaveProperty('imageUrl')
+    expect(categoryWithProducts).toHaveProperty('products')
   })
 })
