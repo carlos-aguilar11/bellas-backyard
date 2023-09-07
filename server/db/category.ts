@@ -12,9 +12,9 @@ export async function getCategoryWithProductsById(
   }
 
   const products = await db('products')
+    .join('categories', 'products.categoryId', 'categories.id')
     .where('categoryId', id)
     .select('products.*')
-    .join('categories', 'products.categoryId', 'categories.id')
 
   const categoryWithProducts: CategoryWithProducts = {
     ...category,

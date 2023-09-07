@@ -6,11 +6,7 @@ exports.up = function (knex) {
     table.decimal('price', 10, 2).notNullable()
     table.string('description')
     table.timestamps(true, true)
-    table
-      .integer('categoryId')
-      .unsigned()
-      .references('id')
-      .inTable('categories')
+    table.integer('categoryId').references('categories.id')
   })
 }
 
