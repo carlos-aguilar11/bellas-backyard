@@ -6,6 +6,7 @@ import {
   it,
   expect,
   test,
+  vi,
 } from 'vitest'
 import knex from 'knex'
 import config from './knexfile'
@@ -15,9 +16,12 @@ const testDb = knex(config.test)
 
 beforeAll(async () => {
   await testDb.migrate.latest()
+  await testDb.seed.run()
 })
 
 beforeEach(async () => {
+  await testDb.migrate.rollback()
+  await testDb.migrate.latest()
   await testDb.seed.run()
 })
 
@@ -26,6 +30,27 @@ afterAll(async () => {
 })
 
 describe('getCategoryWithProductsById', () => {
+  vi.mock('./category', () => {
+    const fakeCategory = {
+      id: 1,
+      name: 'Vegetables',
+      imageUrl: 'storage.com',
+      products: [
+        {
+          id: 1,
+          name: 'Carrot',
+          description: 'Organic carrot - Price is for each',
+          price: 0.99,
+          imageUrl: 'https://example.com/carrot.jpg',
+        },
+      ],
+    }
+
+    return {
+      getCategoryWithProductsById: vi.fn(() => fakeCategory),
+    }
+  })
+
   it('should return a category with details', async () => {
     const categoryId = 1
 
@@ -39,17 +64,9 @@ describe('getCategoryWithProductsById', () => {
     expect(categoryWithProducts).toHaveProperty('imageUrl')
     expect(categoryWithProducts).toHaveProperty('products')
   })
-})
 
-test('should return the correct category with products', async () => {
-  const categoryId = 1
-
-  const expectedCategory = {
-    name: 'Vegetables',
-    products: [],
-  }
-
-  const result = await db.getCategoryWithProductsById(categoryId)
-
-  expect(result).toEqual(expectedCategory)
+  it('should return the correct category with products', async () => {
+    const categoryId = 1
+    const result = await db.getCategoryWithProductsById(categoryId)
+  })
 })

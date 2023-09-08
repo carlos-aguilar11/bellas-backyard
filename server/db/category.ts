@@ -4,15 +4,14 @@ import connection from './connection'
 export async function getCategoryWithProductsById(
   id: number,
   db = connection
-): Promise<CategoryWithProducts> {
+): Promise<CategoryWithProducts | null> {
   const category = await db('categories').where('id', id).select().first()
 
   if (!category) {
-    throw new Error('Category not found')
+    return null
   }
 
   const products = await db('products')
-    .join('categories', 'products.categoryId', 'categories.id')
     .where('categoryId', id)
     .select('products.*')
 
