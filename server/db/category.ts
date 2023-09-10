@@ -1,9 +1,12 @@
 import { CategoryWithProducts } from '../../models/category'
-import connection from './connection'
+import db from './connection'
+
+export async function getAllCategories() {
+  return (await db('categories').select('id', 'name')) as CategoryWithProducts
+}
 
 export async function getCategoryWithProductsById(
-  id: number,
-  db = connection
+  id: number
 ): Promise<CategoryWithProducts | null> {
   const category = await db('categories').where('id', id).select().first()
 
