@@ -55,8 +55,7 @@ describe('getCategoryWithProductsById', () => {
     const categoryId = 1
 
     const categoryWithProducts = await db.getCategoryWithProductsById(
-      categoryId,
-      testDb
+      categoryId
     )
 
     expect(categoryWithProducts).toHaveProperty('id')
