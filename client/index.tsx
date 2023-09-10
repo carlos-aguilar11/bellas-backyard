@@ -8,6 +8,7 @@ import {
 import App from './components/App/App'
 import { Auth0Provider } from '@auth0/auth0-react'
 import './index.css'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
 export const routes = createRoutesFromElements(
   <Route>
@@ -19,6 +20,7 @@ function AppProvider() {
 }
 
 document.addEventListener('DOMContentLoaded', () => {
+  const queryClient = new QueryClient()
   createRoot(document.getElementById('app') as HTMLElement).render(
     <Auth0Provider
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
