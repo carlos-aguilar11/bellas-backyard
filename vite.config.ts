@@ -7,12 +7,12 @@ dotenv.config()
 export default defineConfig({
   plugins: [react()],
   server: {
-    // proxy: {
-    //   '/api': 'http://localhost:3000',
-    // },
-    https: {
-      key: 'bellasbackyard.com-key.pem',
-      cert: 'bellasbackyard.com.pem',
+    proxy: {
+      '/api': 'http://localhost:3000',
     },
+    // https: {
+    //   key: 'bellasbackyard.com-key.pem',
+    //   cert: 'bellasbackyard.com.pem',
+    // },
   },
 })
