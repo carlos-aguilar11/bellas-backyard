@@ -5,7 +5,6 @@ import {
   describe,
   it,
   expect,
-  test,
   vi,
 } from 'vitest'
 import knex from 'knex'
@@ -66,6 +65,26 @@ describe('getCategoryWithProductsById', () => {
 
   it('should return the correct category with products', async () => {
     const categoryId = 1
+
     const result = await db.getCategoryWithProductsById(categoryId)
+
+    if (result) {
+      expect(result.id).toBe(1)
+      expect(result.name).toBe('Vegetables')
+      expect(result.imageUrl).toBe('storage.com')
+
+      expect(Array.isArray(result.products)).toBe(true)
+      expect(result.products.length).toBeGreaterThan(0)
+    }
+  })
+
+  it('should not be null', async () => {
+    const categoryId = 1
+
+    const result = await db.getCategoryWithProductsById(categoryId)
+
+    if (result) {
+      expect(result).not.toBeNull()
+    }
   })
 })

@@ -1,11 +1,12 @@
 import express from 'express'
 const router = express.Router()
 
-import db = require('../db/category')
+import * as db from '../db/category'
 
 router.get('/api/v1/categories', async (req, res) => {
   try {
     const categories = await db.getAllCategories()
+    console.log(categories)
     res.json(categories)
   } catch (error) {
     if (error instanceof Error) {
