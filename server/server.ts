@@ -10,8 +10,8 @@ server.use(express.static(join(__dirname, 'public')))
 
 server.use('/api/v1/categories', categoryRoutes)
 
-// server.get('*', (req, res) => {
-//   res.sendFile(join(__dirname, 'public/index.html'))
-// })
+server.get('*', (req, res) => {
+  res.sendFile(join(__dirname, 'public/index.html'))
+})
 
 export default server

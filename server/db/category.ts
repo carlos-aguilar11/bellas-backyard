@@ -1,8 +1,8 @@
 import { CategoryWithProducts } from '../../models/category'
 import db from './connection'
 
-export async function getAllCategories() {
-  return (await db('categories').select('id', 'name')) as CategoryWithProducts
+export function getAllCategories() {
+  return db('categories').select('id', 'name', 'imageUrl').orderBy('id')
 }
 
 export async function getCategoryWithProductsById(

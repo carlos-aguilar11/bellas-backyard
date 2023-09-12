@@ -3,7 +3,7 @@ const router = express.Router()
 
 import * as db from '../db/category'
 
-router.get('/api/v1/categories', async (req, res) => {
+router.get('/', async (req, res) => {
   try {
     const categories = await db.getAllCategories()
     console.log(categories)
@@ -15,7 +15,7 @@ router.get('/api/v1/categories', async (req, res) => {
   }
 })
 
-router.get('/api/v1/categories/:id', async (req, res) => {
+router.get('/:id', async (req, res) => {
   try {
     const id = Number(req.params.id)
     const category = await db.getCategoryWithProductsById(id)
