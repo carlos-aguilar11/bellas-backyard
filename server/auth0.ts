@@ -1,7 +1,11 @@
-const auth0Config = {
-  domain: process.env.AUTH0_DOMAIN || ' ',
-  clientId: process.env.AUTH0_CLIENT_ID || ' ',
-  redirectUri: 'bellasbackyard.com/info',
+import { auth } from 'express-oauth2-jwt-bearer'
+import dotenv from 'dotenv'
+
+dotenv.config()
+
+const authConfig = {
+  issuerBaseURL: `https://${process.env.VITE_AUTH0_DOMAIN}/`,
+  audience: process.env.VITE_AUTH0_AUDIENCE,
 }
 
-export default auth0Config
+export const validateAccessToken = auth(authConfig)
