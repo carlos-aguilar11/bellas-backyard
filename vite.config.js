@@ -13,9 +13,5 @@ export default defineConfig({
         changeOrigin: true,
       },
     },
-    // https: {
-    //   key: 'bellasbackyard.com-key.pem',
-    //   cert: 'bellasbackyard.com.pem',
-    // },
   },
 })
