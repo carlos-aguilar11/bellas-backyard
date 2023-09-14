@@ -15,7 +15,7 @@ function LogIn() {
 
   return (
     <>
-      <h1>Welcome to Bella's Backyard</h1>
+      <h1>Welcome to Bella&apos;s Backyard</h1>
       <IfNotAuthenticated>
         <button onClick={handleSignIn}>Log In</button>
       </IfNotAuthenticated>
