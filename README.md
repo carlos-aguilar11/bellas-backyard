@@ -1,27 +1,54 @@
-# React + TypeScript + Vite
+# Bella's Backyard Supermarket App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Welcome to Bella's Backyard Supermarket App - a fun project designed for personal use. This app is intended for a specific purpose - to provide a delightful shopping experience for your child, using images of their own supermarket toys.
 
-Currently, two official plugins are available:
+![Bella's Backyard Logo](https://i.ibb.co/MswHH34/Bellas-Backyard-Logo.png)
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Project Overview
 
-## Expanding the ESLint configuration
+Bella's Backyard Supermarket App is a web application that simulates a virtual supermarket. It allows your child to play and have fun while mimicking real supermarket shopping. The app is built with a frontend and a backend, and it utilizes modern web development technologies.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Technologies Used
 
-- Configure the top-level `parserOptions` property like this:
+- React
+- Vite
+- Typescript
+- Vitest
+- SQLite3
+- Auth0
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
+## Features
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- **Authentication**: Utilizes Auth0 to provide secure and easy authentication for parents to control access to the app.
+- **Backend API**: The backend is built using Express.js, allowing the frontend to interact with a database to store data.
+- **Database**: The app includes a database to manage product information and categories.
+
+## Setup
+
+To set up this project for your own use, follow these steps:
+
+1. Clone the project repository.
+2. Install the necessary dependencies for the frontend and backend using `npm install` in the root directory.
+3. Configure your Auth0 account to enable authentication (you should include your details in a `.env` file).
+4. Create the database tables and run seeds using `knex migrate:latest` and `knex seed:run`.
+
+**Note**: This project uses personal images and logos that cannot be reused without permission.
+
+## Contributing
+
+This project is a personal endeavor and is not open to external contributions.
+
+## License
+
+This project is not open source and is intended for personal use. Please respect the licensing of any included assets and code.
+
+## Author
+
+- Carlos Aguilar
+
+## Acknowledgments
+
+- [Auth0](https://auth0.com/) for providing authentication services.
+- [imgbb](https://imgbb.com/) for hosting my images.
+
+Enjoy your time shopping in Bella's Backyard Supermarket!
