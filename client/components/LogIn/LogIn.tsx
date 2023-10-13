@@ -3,7 +3,10 @@ import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
 
 function LogIn() {
-  const { user, logout, loginWithRedirect } = useAuth0()
+  const user = {
+    nickname: 'john.doe',
+  }
+  const { logout, loginWithRedirect } = useAuth0()
 
   const handleSignOut = () => {
     logout()
@@ -16,15 +19,13 @@ function LogIn() {
   return (
     <>
       <h1>Welcome to Bella&apos;s Backyard</h1>
-      <IfNotAuthenticated>
-        <button onClick={handleSignIn}>Log In</button>
-      </IfNotAuthenticated>
       <IfAuthenticated>
-        <div>
-          <p>Welcome, {user?.name}!</p>
-          <button onClick={handleSignOut}>Log Out</button>
-        </div>
+        <button onClick={handleSignOut}>Sign out</button>
+        {user && <p>Signed in as: {user?.nickname}</p>}
       </IfAuthenticated>
+      <IfNotAuthenticated>
+        <button onClick={handleSignIn}>Sign in</button>
+      </IfNotAuthenticated>
     </>
   )
 }

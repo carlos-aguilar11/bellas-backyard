@@ -4,7 +4,6 @@ import type { ParamsDictionary } from 'express-serve-static-core'
 import type { JwtPayload } from 'jsonwebtoken'
 import jwks from 'jwks-rsa'
 
-
 const domain = 'https://carlos-aguilar.au.auth0.com'
 const audience = 'https://bellas-backyard/api'
 
@@ -22,7 +21,7 @@ const checkJwt = jwt({
 
 export default checkJwt
 
-export interface JwtRequest<TReq = any, TRes = any>
+export interface JwtRequest<TReq = unknown, TRes = unknown>
   extends Request<ParamsDictionary, TRes, TReq> {
   auth?: JwtPayload
 }
