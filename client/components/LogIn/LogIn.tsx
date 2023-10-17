@@ -1,12 +1,8 @@
 import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
-
 import { useAuth0 } from '@auth0/auth0-react'
 
 function LogIn() {
-  const user = {
-    nickname: 'john.doe',
-  }
-  const { logout, loginWithRedirect } = useAuth0()
+  const { user, logout, loginWithRedirect } = useAuth0()
 
   const handleSignOut = () => {
     logout()
