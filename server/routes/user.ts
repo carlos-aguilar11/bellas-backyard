@@ -13,9 +13,14 @@ router.get('/', validateAccessToken, async (req, res) => {
     }
     const profile = await getUserByAuth0Id(auth0Id)
 
+    if (!profile) {
+      // User doesn't exist in your database, return null
+      return res.json(null)
+    }
+
     res.json({ profile })
   } catch (error) {
-    console.log(error)
+    console.error(error)
     res.status(500).json({ message: 'Something went wrong' })
   }
 })
