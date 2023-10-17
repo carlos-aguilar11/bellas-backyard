@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 import { checkUserExists } from '../../apis/user'
 
 function LogIn() {
-  const { user, logout, loginWithRedirect } = useAuth0()
+  const { user, logout, loginWithRedirect, getAccessTokenSilently } = useAuth0()
   const navigate = useNavigate()
 
   const handleSignIn = async () => {
@@ -15,24 +15,29 @@ function LogIn() {
       console.error('Error during login:', error)
     }
   }
+  const handleSignOut = () => {
+    logout()
+  }
 
   // This function checks if the user exists in your database
   const checkUser = async () => {
-    if (user?.sub) {
-      const existingUser = await checkUserExists(user.sub)
+    try {
+      const token = await getAccessTokenSilently()
+      const auth0Id = user?.sub // Get the Auth0 ID
 
-      if (existingUser) {
-        // User exists in your database, redirect to the homepage
-        navigate('/')
-      } else {
-        // User does not exist, redirect to the "info" page
-        navigate('/info')
+      if (auth0Id) {
+        const userExists = await checkUserExists(token)
+        if (userExists !== null) {
+          // User exists in your database, redirect to the homepage
+          navigate('/')
+        } else {
+          // User does not exist, redirect to the "info" page
+          navigate('/info')
+        }
       }
+    } catch (error) {
+      console.error('Error checking user:', error)
     }
-  }
-
-  const handleSignOut = () => {
-    logout()
   }
 
   return (

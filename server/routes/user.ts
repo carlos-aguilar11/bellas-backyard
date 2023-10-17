@@ -7,7 +7,6 @@ import { getUserByAuth0Id } from '../db/user'
 router.get('/', validateAccessToken, async (req, res) => {
   try {
     const auth0Id = req.auth?.payload.sub
-    console.log('Auth0 ID:', auth0Id)
     if (!auth0Id) {
       console.error('No auth0Id')
       return res.status(401).send('Unauthorized')
