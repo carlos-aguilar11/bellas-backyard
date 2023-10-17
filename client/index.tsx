@@ -1,10 +1,16 @@
 import { createRoot } from 'react-dom/client'
 import { Auth0Provider } from '@auth0/auth0-react'
-import { BrowserRouter as Router } from 'react-router-dom'
+import { RouterProvider, createBrowserRouter } from 'react-router-dom'
+import router from './router'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { Suspense } from 'react'
 
-import App from './components/App/App'
+function AppProvider() {
+  return <RouterProvider router={createBrowserRouter(router)} />
+}
 
 document.addEventListener('DOMContentLoaded', () => {
+  const queryClient = new QueryClient()
   createRoot(document.getElementById('app') as HTMLElement).render(
     <Auth0Provider
       domain="carlos-aguilar.au.auth0.com"
@@ -26,9 +32,11 @@ document.addEventListener('DOMContentLoaded', () => {
         redirect_uri: window.location.origin,
       }}
     > */}
-      <Router>
-        <App />
-      </Router>
+      <QueryClientProvider client={queryClient}>
+        <Suspense>
+          <AppProvider />
+        </Suspense>
+      </QueryClientProvider>
     </Auth0Provider>
   )
 })
