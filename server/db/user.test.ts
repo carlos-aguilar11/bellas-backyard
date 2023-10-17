@@ -17,7 +17,7 @@ afterAll(async () => {
   await testDb.destroy()
 })
 
-describe('getUserByAuth0Id', () => {
+describe('getUserById', () => {
   it('object has id property', async () => {
     const user = await db.getUserByAuth0Id('auth0|user1', testDb)
 
