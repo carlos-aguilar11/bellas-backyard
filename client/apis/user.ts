@@ -1,7 +1,7 @@
 import request from 'superagent'
 import { NewUser, User } from '../../models/user'
 
-const rootUrl = '/api/v1/users'
+const rootUrl = '/api/v1/user'
 
 export async function checkUserExists(token: string): Promise<User | null> {
   try {
