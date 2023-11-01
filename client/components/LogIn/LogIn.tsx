@@ -21,7 +21,7 @@ function LogIn() {
     logout()
   }
 
-  // This function checks if the user exists in your database
+  // Check if the user exists in the database
   const checkUser = useCallback(async () => {
     try {
       const token = await getAccessTokenSilently()
@@ -30,7 +30,7 @@ function LogIn() {
       if (auth0Id) {
         const userExists = await checkUserExists(token)
         if (userExists !== null) {
-          // User exists in your database, redirect to the homepage
+          // User exists in the database, redirect to the homepage
           navigate('/')
         } else {
           // User does not exist, redirect to the "info" page
