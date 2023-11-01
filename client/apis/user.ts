@@ -12,12 +12,11 @@ export async function checkUserExists(token: string): Promise<User | null> {
     return res.body as User
   } catch (error: unknown) {
     if (error instanceof Error) {
-      // Handle other specific errors if needed
       console.error(error.message)
     } else {
       console.error('An unknown error occurred:', error)
     }
-    return null // Return null or another appropriate value
+    return null
   }
 }
 
