@@ -2,7 +2,7 @@ import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
 import { useNavigate } from 'react-router-dom'
 import { checkUserExists } from '../../apis/user'
-import { useEffect, useCallback } from 'react' // Import useEffect and useCallback
+import { useEffect, useCallback } from 'react'
 
 function LogIn() {
   const { user, logout, loginWithRedirect, getAccessTokenSilently } = useAuth0()

@@ -3,27 +3,27 @@ exports.seed = async function (knex) {
   await knex('categories').insert([
     {
       name: 'Vegetables',
-      imageUrl: 'storage.com',
+      imageUrl: 'https://ibb.co/JjLQ8jR',
     },
     {
       name: 'Fruits',
-      imageUrl: 'storage.com',
+      imageUrl: 'https://ibb.co/474pGq1',
     },
     {
       name: 'Bakery',
-      imageUrl: 'storage.com',
+      imageUrl: 'https://ibb.co/wzWGybJ',
     },
     {
       name: 'Snacks',
-      imageUrl: 'storage.com',
+      imageUrl: 'https://ibb.co/gJ5kPyp',
     },
     {
       name: 'Drinks',
-      imageUrl: 'storage.com',
+      imageUrl: 'https://ibb.co/bLM2cX7',
     },
     {
       name: 'Toys',
-      imageUrl: 'storage.com',
+      imageUrl: 'https://ibb.co/Cpczmh2',
     },
   ])
 }
