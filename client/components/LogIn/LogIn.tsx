@@ -31,7 +31,7 @@ function LogIn() {
       if (auth0Id) {
         const userExists = await checkUserExists(token)
         if (userExists !== null) {
-          const { name } = userExists.profile.name
+          const { name } = userExists.profile
           setUserName(name)
           // User exists in the database, redirect to the homepage
           navigate('/')
@@ -57,7 +57,11 @@ function LogIn() {
       <h1>Welcome to Bella&apos;s Backyard</h1>
       <IfAuthenticated>
         <button onClick={handleSignOut}>Sign out</button>
-        {user && <p>Welcome {userName}</p>}
+        {userName ? (
+          <p>Welcome {userName}</p>
+        ) : (
+          <p>Loading user information...</p>
+        )}
       </IfAuthenticated>
       <IfNotAuthenticated>
         <button onClick={handleSignIn}>Sign in</button>
