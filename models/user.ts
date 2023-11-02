@@ -1,4 +1,5 @@
 export interface User {
+  profile: any
   id: number
   auth0Id: string
   email: string
