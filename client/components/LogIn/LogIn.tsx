@@ -1,6 +1,6 @@
 import { IfAuthenticated, IfNotAuthenticated } from '../Authenticated'
 import { useAuth0 } from '@auth0/auth0-react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 import { checkUserExists } from '../../apis/user'
 import { useEffect, useCallback, useState } from 'react'
 
@@ -8,6 +8,7 @@ function LogIn() {
   const { user, logout, loginWithRedirect, getAccessTokenSilently } = useAuth0()
   const navigate = useNavigate()
   const [userName, setUserName] = useState('')
+  const [isLoading, setIsLoading] = useState(true)
 
   const handleSignIn = async () => {
     try {
@@ -40,6 +41,7 @@ function LogIn() {
           navigate('/info')
         }
       }
+      setIsLoading(false)
     } catch (error) {
       console.error('Error checking user:', error)
     }
@@ -52,15 +54,18 @@ function LogIn() {
     }
   }, [user, checkUser])
 
+  const location = useLocation()
+  const userNameFromInfo = location.state ? location.state.userName : ''
+
   return (
     <>
       <h1>Welcome to Bella&apos;s Backyard</h1>
       <IfAuthenticated>
         <button onClick={handleSignOut}>Sign out</button>
-        {userName ? (
-          <p>Welcome {userName}</p>
-        ) : (
+        {isLoading ? (
           <p>Loading user information...</p>
+        ) : (
+          <p>Welcome {userNameFromInfo || userName}</p>
         )}
       </IfAuthenticated>
       <IfNotAuthenticated>

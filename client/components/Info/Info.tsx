@@ -36,7 +36,8 @@ function Info() {
         const createdUser: User = await createUser(newUser, token)
 
         console.log('User created:', createdUser)
-        navigate('/')
+        navigate('/', { state: { userName: createdUser.name } })
+        console.log('user:', createdUser.name)
       } catch (error) {
         console.error('Error creating user:', error)
       }
