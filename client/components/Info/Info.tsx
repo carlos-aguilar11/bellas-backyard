@@ -35,9 +35,7 @@ function Info() {
         const token = await getAccessTokenSilently()
         const createdUser: User = await createUser(newUser, token)
 
-        console.log('User created:', createdUser)
-        navigate('/', { state: { userName: createdUser.name } })
-        console.log('user:', createdUser.name)
+        navigate('/')
       } catch (error) {
         console.error('Error creating user:', error)
       }
