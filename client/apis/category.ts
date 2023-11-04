@@ -3,12 +3,12 @@ import { Category } from '../../models/category'
 
 const rootUrl = '/api/v1/categories'
 
-export async function getCategories(): Promise<Category | null> {
+export async function getCategories() {
   try {
     const res = await request
       .get(rootUrl)
       .set('Content-Type', 'application/json')
-    return res.body as Category
+    return res.body as Category[]
   } catch (error: unknown) {
     if (error instanceof Error) {
       console.error(error.message)
