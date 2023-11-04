@@ -11,6 +11,11 @@ function Info() {
   const [username, setUsername] = useState('')
   const [imageUrl, setImageUrl] = useState('')
   const navigate = useNavigate()
+  const { logout } = useAuth0()
+
+  const handleSignOut = () => {
+    logout()
+  }
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -47,6 +52,8 @@ function Info() {
   return (
     <div>
       <h1>Complete your Profile</h1>
+
+      <button onClick={handleSignOut}>Sign out</button>
       {isAuthenticated ? (
         <form onSubmit={handleSubmit}>
           <div>
