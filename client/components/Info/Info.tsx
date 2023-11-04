@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { User, useAuth0 } from '@auth0/auth0-react'
+import { useAuth0 } from '@auth0/auth0-react'
 import { NewUser } from '../../../models/user'
 import { createUser } from '../../apis/user'
 import { useNavigate } from 'react-router-dom'
@@ -33,7 +33,7 @@ function Info() {
       }
       try {
         const token = await getAccessTokenSilently()
-        const createdUser: User = await createUser(newUser, token)
+        await createUser(newUser, token)
 
         navigate('/')
       } catch (error) {

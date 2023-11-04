@@ -1,7 +1,13 @@
 import React from 'react'
+import LogIn from '../LogIn/LogIn'
 
 function Home() {
-  return <div>Home</div>
+  return (
+    <div>
+      <LogIn />
+      <div>Home</div>
+    </div>
+  )
 }
 
 export default Home
