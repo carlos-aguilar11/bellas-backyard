@@ -1,10 +1,11 @@
 import React from 'react'
-import LogIn from '../LogIn/LogIn'
+
+import Nav from '../Nav/Nav'
 
 function Home() {
   return (
     <div>
-      <LogIn />
+      <Nav />
       <div>Home</div>
     </div>
   )

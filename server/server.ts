@@ -2,7 +2,7 @@ import { join } from 'node:path'
 import express from 'express'
 
 import categoryRoutes from './routes/categories'
-import userRoutes from './routes/user'
+import userRoutes from './routes/users'
 
 const server = express()
 
