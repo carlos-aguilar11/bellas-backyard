@@ -15,6 +15,7 @@ function Categories() {
           data.map((category) => (
             <div key={category.id}>
               <h2>{category.name}</h2>
+              <h3>{category.imageUrl}</h3>
             </div>
           ))}
       </div>

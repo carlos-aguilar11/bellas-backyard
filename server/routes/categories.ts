@@ -6,7 +6,7 @@ import * as db from '../db/category'
 router.get('/', async (req, res) => {
   try {
     const categories = await db.getAllCategories()
-    console.log(categories)
+
     res.json(categories)
   } catch (error) {
     if (error instanceof Error) {
