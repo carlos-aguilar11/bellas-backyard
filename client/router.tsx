@@ -1,4 +1,4 @@
-import App from './components/App/App'
+import App from './App'
 import Home from './components/Home/Home'
 import Info from './components/Info/Info'
 import { Route, createRoutesFromElements } from 'react-router-dom'

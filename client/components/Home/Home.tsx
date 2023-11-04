@@ -8,7 +8,7 @@ function Home() {
     <div>
       <Nav />
       <Categories />
-      <div className="text-blue-300">Home</div>
+      <div>Home</div>
     </div>
   )
 }
