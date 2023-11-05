@@ -2,8 +2,7 @@ import { Outlet } from 'react-router-dom'
 
 function App() {
   return (
-    <div>
-      <h1 className="text-blue-600"> Prueba</h1>
+    <div className="ml-2">
       <Outlet />
     </div>
   )

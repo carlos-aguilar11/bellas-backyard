@@ -53,7 +53,12 @@ function Info() {
     <div>
       <h1>Complete your Profile</h1>
 
-      <button onClick={handleSignOut}>Sign out</button>
+      <button
+        className="font-semibold bg-pink-950  hover:bg-gray-300 text-white p-1 hover:text-red-900 border border-transparent rounded"
+        onClick={handleSignOut}
+      >
+        Sign out
+      </button>
       {isAuthenticated ? (
         <form onSubmit={handleSubmit}>
           <div>

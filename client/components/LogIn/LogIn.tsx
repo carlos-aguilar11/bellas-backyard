@@ -56,7 +56,12 @@ function LogIn() {
     <>
       <h1>Welcome to Bella&apos;s Backyard</h1>
       <IfAuthenticated>
-        <button onClick={handleSignOut}>Sign out</button>
+        <button
+          className="font-semibold bg-pink-950  hover:bg-gray-300 text-white p-1 hover:text-red-900 border border-transparent rounded"
+          onClick={handleSignOut}
+        >
+          Sign out
+        </button>
         {userName ? (
           <p>Welcome {userName}</p>
         ) : (
@@ -64,7 +69,12 @@ function LogIn() {
         )}
       </IfAuthenticated>
       <IfNotAuthenticated>
-        <button onClick={handleSignIn}>Sign in</button>
+        <button
+          className="font-semibold bg-pink-950  hover:bg-gray-300 text-white p-1 hover:text-red-900 border border-transparent rounded"
+          onClick={handleSignIn}
+        >
+          Sign in
+        </button>
       </IfNotAuthenticated>
     </>
   )
