@@ -70,7 +70,7 @@ function LogIn() {
       </IfAuthenticated>
       <IfNotAuthenticated>
         <button
-          className="font-semibold bg-pink-950  hover:bg-gray-300 text-white p-1 hover:text-red-900 border border-transparent rounded"
+          className="font-semibold bg-pink-950  hover:bg-gray-300 text-white py-1 px-2 hover:text-red-900 border border-gray-400 rounded shadow"
           onClick={handleSignIn}
         >
           Sign in
